@@ -14,7 +14,6 @@ app.get('/posts', (req, res) => {
 
 app.post('/events', (req, res) => {
     const { type, data } = req.body
-    console.log('>events', req.body)
 
     if (type === 'PostCreated') {
         const { id, title } = data
@@ -28,8 +27,6 @@ app.post('/events', (req, res) => {
         const post = posts[postId]
         post.comments.push({ id, content })
     }
-
-    console.log('>>', posts)
 
     res.send({})
 })
